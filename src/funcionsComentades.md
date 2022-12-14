@@ -58,3 +58,35 @@ function App() {
 }
 export default App;
 ```
+
+
+# EXERCISE 3
+
+### ESCENA
+```jsx
+import { Border } from "../../styled" // Importo el component `Border`.
+
+export function Escena({ textLine }) {
+  return (
+    <div>
+      <Border>{textLine}</Border> // Afegeixo el component que he creat a `styled` (que contindrà el `textLine`)
+    </div>
+  );
+}
+```
+
+### STYLED
+```js
+import styled from 'styled-components' // Importo de styled-components (programa per fer components d'estil)
+
+// Creo una caixa (li dic com ha de ser d'acord a les normes del styled-components) i la guardo dins de `Border` (component que després exporto a `escena`). 
+export const Border = styled.p` 
+  height: 50px;
+  border: 2px solid black;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255,255,255, .7) ;
+`;
+```

@@ -1,3 +1,9 @@
+import { Border } from "../../styled"
+
 export function Escena({ textLine }) {
-  return <p>{textLine}</p>;
+  return (
+    <div>
+      <Border>{textLine}</Border>
+    </div>
+  );
 }
