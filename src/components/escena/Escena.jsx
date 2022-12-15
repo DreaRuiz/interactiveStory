@@ -1,9 +1,11 @@
-import { Border } from "../../styled"
+import { Border } from "../../styled";
 
-export function Escena({ textLine }) {
+function Escena({ textLine, id, position }) {
   return (
     <div>
-      <Border>{textLine}</Border>
+      <Border active={position === id ? true : false}>{textLine}</Border>
     </div>
   );
 }
+
+export default Escena;
