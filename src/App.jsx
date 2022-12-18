@@ -3,10 +3,10 @@ import { useState } from "react";
 import Escena from "./components/escena/Escena";
 import { sentences as data, sentences } from "./data/sentences";
 import { Button } from "./styled";
+import { Welcome } from "./components/Welcome";
 
 function App() {
   const [position, setPosition] = useState(1);
-
   function ActiveNext() {
     if (position < sentences.length) {
       setPosition(position + 1);
@@ -26,7 +26,14 @@ function App() {
     }
   }
 
-  return (
+  let [initialPage, setPage] = useState(true);
+  const nextPage = () => {
+    setPage(false);
+  };
+
+  return initialPage === true ? (
+    <Welcome next={nextPage} />
+  ) : (
     <>
       <div>
         <Button onClick={() => ActiveBack()}>Anterior</Button>

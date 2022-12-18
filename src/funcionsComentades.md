@@ -145,6 +145,7 @@ function App() {
     </>
   );
 }
+}
 
 export default App;
 ```
@@ -199,5 +200,139 @@ export const Button = styled.p`
     display: inline-block;
     font-size: 16px;
     font-family: Arial;
+`;
+```
+# EXERCISE 5
+
+### APP
+```jsx
+import React from "react";
+import { useState } from "react";
+import Escena from "./components/escena/Escena";
+import { sentences as data, sentences } from "./data/sentences";
+import { Button } from "./styled";
+import { Welcome } from './components/Welcome' // Importo el component Welcome
+
+function App() {
+  const [position, setPosition] = useState(1);
+
+  function ActiveNext() {
+    if (position < sentences.length) {
+      setPosition(position + 1);
+    }
+    if (position >= sentences.length) {
+      setPosition(1);
+    }
+  }
+
+  function ActiveBack() {
+    if (position <= sentences.length) {
+      setPosition(position - 1);
+    }
+
+    if (position === 1) {
+      setPosition(4);
+    }
+  }
+
+  let [initialPage, setPage] = useState(true); // Faig un useState en TRUE per quan s'inicii la pàgina amb Welcome.
+
+  const nextPage = () => { // Creo la funció de SEGÜENT pàgina que fa que l'estat sigui FALSE i per tant no surti la pàgina de Welcome.
+    setPage(false);
+  };
+
+
+  return initialPage === true ? ( // Li dic que retorno segons un condicional. Si initialPage és true, ha de mostrar la Welcome
+      <Welcome next={nextPage} />
+  ) : ( // Si el condicional és fals, ha de mostrar la pàgina de la història.
+    <>
+      <div>
+        <Button onClick={() => ActiveBack()}>Anterior</Button>
+        <Button onClick={() => ActiveNext()}>Següent</Button>
+      </div>
+
+      <div>
+        {data.map((sentences) => (
+          <Escena
+            key={sentences.id}
+            id={sentences.id}
+            textLine={sentences.text}
+            position={position}
+          />
+        ))}
+      </div>
+    </>
+  );
+}
+
+export default App;
+```
+
+### WELCOME
+```jsx
+import { WelcomeTitle, WelcomeP, WelcomeButton } from "../styled";
+
+export const Welcome = ({ next }) => { // Creo el componenet i li passo per prop NEXT (que serà el que necessito per sortir d'aquesta pàgina).
+  
+  return (
+    <div>
+      <WelcomeTitle>La historia de d'un heroi</WelcomeTitle> // Afegeixo l'estil WelcomeTitle
+      <WelcomeP> // Afegeixo l'estil WelcomeP
+        Visita aquesta història interactiva on pots navegar per les escenes clicant els
+        botons Següent i Anterior.
+      </WelcomeP>
+      <WelcomeButton onClick={next}>Començar</WelcomeButton> // Afegeixo l'estil WelcomeButton
+    </div>
+  );
+};
+```
+
+### STYLED
+```js
+ export const WelcomeTitle = styled.h1`
+  magin: 50px;
+  color: #4fa095;
+  margin-left: 25%;
+  margin-right: 25%;
+  padding: 15px 32px;
+  display: flex;
+  text-align: center;
+  text-decoration: none;
+  justify-content: center;
+  display: inline-block;
+  font-size: 50px;
+  font-family: Arial;
+  justify: center;
+`;
+export const WelcomeP = styled.p`
+  color: #8ec3b5;
+  margin-left: 25%;
+  margin-right: 25%;
+  display: flex;
+  text-align: center;
+  text-decoration: none;
+  justify-content: center;
+  display: inline-block;
+  font-size: 20px;
+  font-family: Arial;
+  justify: center;
+`;
+
+export const WelcomeButton = styled.p`
+  height: 20px;
+  width: 40%;
+  margin-left: 25%;
+  margin-right: 25%;
+  border-radius: 15px;
+  background-color: #4fa095;
+  color: #def5e5;
+  padding: 15px 32px;
+  display: flex;
+  text-align: center;
+  text-decoration: none;
+  justify-content: center;
+  display: inline-block;
+  font-size: 16px;
+  font-family: Arial;
 `;
 ```
