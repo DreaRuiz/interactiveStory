@@ -1,4 +1,4 @@
-import { Border } from "../../styled";
+import { Border, Container } from "../../styled";
 
 function Escena({ textLine, id, position }) {
   return (
@@ -7,5 +7,10 @@ function Escena({ textLine, id, position }) {
     </div>
   );
 }
-
 export default Escena;
+
+export function ShowImage({ position, id, image }) {
+  return (
+    <Container active={position === id ? true : false}> {image} </Container>
+  );
+}

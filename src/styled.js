@@ -45,7 +45,7 @@ export const WelcomeTitle = styled.h1`
   justify: center;
 `;
 export const WelcomeP = styled.p`
-  color: #8ec3b5;
+  color: 8ec3b5#;
   margin-left: 25%;
   margin-right: 25%;
   display: flex;
@@ -74,4 +74,13 @@ export const WelcomeButton = styled.p`
   display: inline-block;
   font-size: 16px;
   font-family: Arial;
+`;
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-image: url(${(props) => props.background});
 `;

@@ -4,9 +4,11 @@ import Escena from "./components/escena/Escena";
 import { sentences as data, sentences } from "./data/sentences";
 import { Button } from "./styled";
 import { Welcome } from "./components/Welcome";
+import { ShowImage } from "./components/escena/Escena";
 
 function App() {
   const [position, setPosition] = useState(1);
+
   function ActiveNext() {
     if (position < sentences.length) {
       setPosition(position + 1);
@@ -39,17 +41,17 @@ function App() {
         <Button onClick={() => ActiveBack()}>Anterior</Button>
         <Button onClick={() => ActiveNext()}>Següent</Button>
       </div>
+      {data.map((sentences) => (
+        <Escena
+          key={sentences.id}
+          id={sentences.id}
+          image={sentences.img}
+          textLine={sentences.text}
+          position={position}
+        />
+      ))}
 
-      <div>
-        {data.map((sentences) => (
-          <Escena
-            key={sentences.id}
-            id={sentences.id}
-            textLine={sentences.text}
-            position={position}
-          />
-        ))}
-      </div>
+      <ShowImage />
     </>
   );
 }
