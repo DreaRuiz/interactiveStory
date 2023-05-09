@@ -1,9 +1,9 @@
-import { WelcomeTitle, WelcomeP, WelcomeButton } from "../styled";
+import { WelcomeTitle, WelcomeP, WelcomeButton, Background } from "../styled";
 
 export const Welcome = ({ next }) => {
   return (
     <div>
-      <WelcomeTitle>La historia de d'un heroi</WelcomeTitle>
+      <WelcomeTitle>La historia d'un heroi</WelcomeTitle>
       <WelcomeP>
         Visita aquesta història interactiva on pots navegar per les escenes
         clicant els botons Següent i Anterior.

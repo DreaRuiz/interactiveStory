@@ -4,7 +4,6 @@ import Escena from "./components/escena/Escena";
 import { sentences as data, sentences } from "./data/sentences";
 import { Button } from "./styled";
 import { Welcome } from "./components/Welcome";
-import { ShowImage } from "./components/escena/Escena";
 
 function App() {
   const [position, setPosition] = useState(1);
@@ -37,7 +36,7 @@ function App() {
     <Welcome next={nextPage} />
   ) : (
     <>
-      <div>
+      <div className="container">
         <Button onClick={() => ActiveBack()}>Anterior</Button>
         <Button onClick={() => ActiveNext()}>Següent</Button>
       </div>
@@ -51,9 +50,10 @@ function App() {
         />
       ))}
 
-      <ShowImage />
     </>
+  
   );
 }
 
 export default App;
+

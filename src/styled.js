@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Border = styled.p`
-  height: 50px;
+  height: 80px;
   border: 2px solid #8ec3b0;
   border-radius: 30px;
   display: flex;
@@ -9,17 +9,22 @@ export const Border = styled.p`
   justify-content: center;
   color: black;
   font-family: Arial;
-  background-color: ${({ active }) => (active ? "pink" : "white")};
+  font-size: 30px;
+  background-color: ${({ active }) => (active ? "beige" : "white")};
+  margin-left: 500px;
+  margin-right: 500px;
 `;
 
 export const Button = styled.p`
+margin-top: 200px;
   height: 20px;
   width: 40%;
   border-radius: 15px;
   background-color: #def5e5;
   color: #8ec3b0;
-  margin: 5px;
-  padding: 15px 32px;
+  margin-left: 100px;
+  margin-right: 100px;
+  padding: 25px 40px;
   display: flex;
   text-align: center;
   text-decoration: none;
@@ -27,6 +32,7 @@ export const Button = styled.p`
   display: inline-block;
   font-size: 16px;
   font-family: Arial;
+  font-size: 30px;
 `;
 
 export const WelcomeTitle = styled.h1`
@@ -53,9 +59,9 @@ export const WelcomeP = styled.p`
   text-decoration: none;
   justify-content: center;
   display: inline-block;
-  font-size: 20px;
   font-family: Arial;
   justify: center;
+  font-size: 30px;
 `;
 
 export const WelcomeButton = styled.p`
@@ -66,14 +72,14 @@ export const WelcomeButton = styled.p`
   border-radius: 15px;
   background-color: #4fa095;
   color: #def5e5;
-  padding: 15px 32px;
+  padding: 25px 40px;
   display: flex;
   text-align: center;
   text-decoration: none;
   justify-content: center;
   display: inline-block;
-  font-size: 16px;
   font-family: Arial;
+  font-size: 30px;
 `;
 
 export const Container = styled.div`
@@ -82,5 +88,5 @@ export const Container = styled.div`
   height: 100vh;
   background-size: cover;
   background-position: center;
-  background-image: url(${(props) => props.background});
+  background-image: url(${(active) => active.image});
 `;
