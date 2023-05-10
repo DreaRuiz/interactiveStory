@@ -1,6 +1,6 @@
-# interactiveStory
-React App to read a story.
+# Interactive Story
 Firs react project
+React App to read a story.
 
 
 ## Built With
