@@ -1,4 +1,4 @@
-import { WelcomeTitle, WelcomeP, WelcomeButton, Background } from "../styled";
+import { WelcomeTitle, WelcomeP, WelcomeButton } from "../styled";
 
 export const Welcome = ({ next }) => {
   return (
